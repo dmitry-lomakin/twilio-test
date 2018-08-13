@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matched Provides</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+          crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <span class="header-button"><i class="fas fa-arrow-left"></i> BACK</span>
+        <span class="header-list header-list-text">Go to case ID#</span><span class="header-list header-list-button"><i class="fas fa-arrow-right"></i></span>
+        <span class="header-button"><i class="fas fa-chart-line"></i> Fulfillment KPIs</span>
+        <span class="username-link">leo@truecare24.com <i class="fas fa-chevron-down"></i></span>
+    </header>
+    <aside id="sidebar">
+        <img src="assets/img/truecare24-logo.png" width="70" alt="True Care 24">
+
+        <div class="sidebar-button">
+            <i class="fas fa-solar-panel fa-lg"></i>
+            <div class="sidebar-button-label">Dashboard</div>
+        </div>
+
+        <div class="sidebar-button">
+            <i class="far fa-question-circle fa-lg"></i>
+            <div class="sidebar-button-label">F.A.Q.</div>
+        </div>
+
+        <div class="sidebar-button">
+            <i class="fas fa-sign-out-alt fa-lg"></i>
+            <div class="sidebar-button-label">Sign out</div>
+        </div>
+    </aside>
+    <section id="content">
+        <div class="panel">
+            <h1>Matched providers</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>ID</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="type-cell">
+                            <i class="fas fa-fw fa-flag"></i>
+                            <i class="fas fa-fw fa-user-alt"></i>
+                        </td>
+                        <td>Birdie Carson</td>
+                        <td>test@example.com</td>
+                        <td>+1 (886) 124-35-47</td>
+                        <td>7675</td>
+                        <td><i class="far fa-star"></i> Contract Signed</td>
+                        <td>
+                            <button>CHAT</button>
+                            <button>CALL</button>
+                            <button><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                    <tr class="even">
+                        <td class="type-cell">
+                            <i class="fas fa-fw fa-minus"></i>
+                            <i class="fas fa-fw fa-user-alt"></i>
+                        </td>
+                        <td>Birdie Carson</td>
+                        <td>test@example.net</td>
+                        <td>+1 (886) 124-35-47</td>
+                        <td>7675</td>
+                        <td><i class="far fa-star"></i> Contract Signed</td>
+                        <td>
+                            <button>CHAT</button>
+                            <button>CALL</button>
+                            <button><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

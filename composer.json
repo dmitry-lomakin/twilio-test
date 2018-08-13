@@ -1,0 +1,14 @@
+{
+  "name": "for93t/twilio-test",
+  "description": "Experimenting with Twilio API",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Dmitry Lomakin",
+      "email": "lomakin.d@gmail.com"
+    }
+  ],
+  "require": {
+    "twilio/sdk": "5.21.1"
+  }
+}

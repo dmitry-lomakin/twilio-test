@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('/fonts/Lato-Regular.ttf');
+}
+body {
+    background-color: #EBEFF4;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato';
+}
+header {
+    background-color: #FFFFFF;
+    font-size: 85%;
+    min-height: 70px;
+    line-height: 70px;
+    padding: 0 20px 0 80px;
+}
+
+.header-button {
+    margin-right: 20px;
+    cursor: pointer;
+}
+.header-button i.fas {
+    color: #54D0FF;
+}
+
+.header-list {
+    background-color: #F5F9FC;
+    border: solid 1px #E6EDF1;
+    border-radius: 5px;
+    padding: 8px;
+}
+.header-list-text {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.header-list-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #54D0FF;
+    color: #FFFFFF;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.username-link {
+    float: right;
+}
+.username-link i.fas {
+    font-size: 70%;
+}
+
+#sidebar {
+    position: absolute;
+    width: 70px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 50;
+    background-color: #264E66;
+}
+
+.sidebar-button {
+    text-align: center;
+    color: #54D0FF;
+    margin: 20px 0;
+    cursor: pointer;
+}
+.sidebar-button-label {
+    font-size: 75%;
+    color: #FFFFFF;
+    margin-top: 10px;
+}
+
+#content {
+    padding: 20px 20px 0 90px;
+}
+
+.panel {
+    background-color: #FFFFFF;
+    border: solid 1px #E6EDF1;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    overflow: auto;
+}
+
+.panel > table {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+.panel > table > thead > tr > th {
+    background-color: #F4F7F9;
+    border: none;
+    padding: 7px;
+    font-size: 85%;
+    text-align: left;
+    color: #B0BEC8;
+    font-weight: normal;
+}
+.panel > table > tbody > tr > td {
+    border: none;
+    padding: 7px;
+}
+.panel > table > tbody > tr.even > td {
+    background-color: #F4F7F9;
+}
+
+td.type-cell {
+    text-align: left;
+    color: #B9C6CE;
+}
