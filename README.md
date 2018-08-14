@@ -8,7 +8,7 @@ The application's features include:
  - Clicking on the `CALL` button initiates a phone call to the admin phone (which is hardcoded in the app config), once the admin picked up the call is being redirected to the chosen provider, once the provider picked up the phone they are connected with the admin
  - The call progress is correctly reflected in the UI
  
-**IMPORTANT NOTE:** *The demo installation uses a trial Twilio account so it cannot make call to real number, only to verified ones.*
+**IMPORTANT NOTE:** *The demo installation uses a trial Twilio account so it cannot make calls to real numbers, only to verified ones.*
 
 The code is written in Vanilla JavaScript ES6. In case of older browsers support is required it can be easily converted into ES5 JavaScript code by Webpack with Babel plugin.
 
