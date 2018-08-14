@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
           crossorigin="anonymous">
+
+    <script src="js/app.js" defer type="module"></script>
 </head>
 <body>
     <header>
@@ -35,56 +37,10 @@
         </div>
     </aside>
     <section id="content">
-        <div class="panel">
-            <h1>Matched providers</h1>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>ID</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="type-cell">
-                            <i class="fas fa-fw fa-flag"></i>
-                            <i class="fas fa-fw fa-user-alt"></i>
-                        </td>
-                        <td>Birdie Carson</td>
-                        <td>test@example.com</td>
-                        <td>+1 (886) 124-35-47</td>
-                        <td>7675</td>
-                        <td><i class="far fa-star"></i> Contract Signed</td>
-                        <td>
-                            <button>CHAT</button>
-                            <button>CALL</button>
-                            <button><i class="fas fa-ellipsis-v"></i></button>
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="type-cell">
-                            <i class="fas fa-fw fa-minus"></i>
-                            <i class="fas fa-fw fa-user-alt"></i>
-                        </td>
-                        <td>Birdie Carson</td>
-                        <td>test@example.net</td>
-                        <td>+1 (886) 124-35-47</td>
-                        <td>7675</td>
-                        <td><i class="far fa-star"></i> Contract Signed</td>
-                        <td>
-                            <button>CHAT</button>
-                            <button>CALL</button>
-                            <button><i class="fas fa-ellipsis-v"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="panel" data-component="providers-table">
+            <div class="table-loading-indicator">
+                <i class="fas fa-spinner fa-2x fa-spin"></i><br>Loading providers
+            </div>
         </div>
     </section>
 </body>

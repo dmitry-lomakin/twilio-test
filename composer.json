@@ -9,6 +9,8 @@
     }
   ],
   "require": {
-    "twilio/sdk": "5.21.1"
+    "twilio/sdk": "5.21.1",
+    "fzaninotto/faker": "v1.8.0",
+    "ext-json": "*"
   }
 }

@@ -84,7 +84,10 @@ header {
     box-shadow: 0 0 2px rgba(0,0,0,0.5);
     overflow: auto;
 }
-
+.panel > .table-loading-indicator {
+    padding: 20px;
+    text-align: center;
+}
 .panel > table {
     width: 100%;
     border: none;
