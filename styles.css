@@ -114,3 +114,28 @@ td.type-cell {
     text-align: left;
     color: #B9C6CE;
 }
+
+.cell-button {
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 5px;
+    outline: none;
+    cursor: pointer;
+}
+.chat-button {
+    background-color: #54D0FF;
+}
+.chat-button.pressed {
+    background-color: #00B9FF;
+}
+.call-button {
+    background-color: #29C581;
+}
+.call-button.pressed {
+    background-color: #00B063;
+}
+.ellipsis-button {
+    background-color: transparent;
+    color: #728B9B;
+}

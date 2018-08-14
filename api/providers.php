@@ -6,7 +6,13 @@ include __DIR__ . "/../vendor/autoload.php";
 $faker = Faker\Factory::create();
 
 $providers = [];
-$allStatuses = [ 'contacted', 'talked', 'assessment', 'contract_signed', 'cancelled' ];
+$allStatuses = [
+    [ 'Contacting', 'fas fa-fw fa-arrow-right' ],
+    [ 'Talked to the client', 'fas fa-fw fa-phone' ],
+    [ 'Assessment scheduled', 'far fa-fw fa-eye' ],
+    [ 'Contract signed', 'far fa-fw fa-star' ],
+    [ 'Cancel the client', 'fas fa-fw fa-times' ],
+];
 
 for ($i = 0; $i < 30; $i++) {
     $providers[] = [

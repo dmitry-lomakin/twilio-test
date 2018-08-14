@@ -6,6 +6,26 @@ export default class ProvidersTable extends Component {
 
     constructor ({ element }) {
         super({ element });
+
+        this.on('mousedown', '.chat-button', (event) => {
+            event.delegateTarget.classList.add('pressed');
+        });
+
+        this.on('mouseup', '.chat-button', (event) => {
+            event.delegateTarget.classList.remove('pressed');
+        });
+
+        this.on('mousedown', '.call-button', (event) => {
+            event.delegateTarget.classList.add('pressed');
+        });
+
+        this.on('mouseup', '.call-button', (event) => {
+            event.delegateTarget.classList.remove('pressed');
+        });
+
+        this.on('click', '.call-button', (event) => {
+            console.log(event.delegateTarget.closest('tr').dataset);
+        });
     }
 
     showProviders(providers) {
@@ -30,7 +50,10 @@ export default class ProvidersTable extends Component {
                 </thead>
                 <tbody>
                 ${ providers.map((provider, idx) => `
-                    <tr${ idx % 2 ? '' : ' class="even"' }>
+                    <tr${ idx % 2 ? '' : ' class="even"' } 
+                        data-client-id="${ provider.id }" 
+                        data-client-phone="${ provider.phone }">
+                        
                         <td class="type-cell">
                             <i class="fas fa-fw fa-flag"></i>
                             <i class="fas fa-fw fa-user-alt"></i>
@@ -39,12 +62,13 @@ export default class ProvidersTable extends Component {
                         <td>${ provider.email }</td>
                         <td>${ provider.phone }</td>
                         <td>${ provider.id }</td>
-                        <td><i class="far fa-star"></i> ${ provider.status }</td>
+                        <td><i class="${ provider.status[1] }"></i> ${ provider.status[0] }</td>
                         <td>
-                            <button>CHAT</button>
-                            <button>CALL</button>
-                            <button><i class="fas fa-ellipsis-v"></i></button>
+                            <button class="cell-button chat-button">CHAT</button>
+                            <button class="cell-button call-button">CALL</button>
+                            <button class="cell-button ellipsis-button"><i class="fas fa-ellipsis-v"></i></button>
                         </td>
+                        
                     </tr>
                 `).join('') }
                 </tbody>
