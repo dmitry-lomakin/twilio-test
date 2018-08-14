@@ -24,7 +24,16 @@ export default class ProvidersTable extends Component {
         });
 
         this.on('click', '.call-button', (event) => {
-            console.log(event.delegateTarget.closest('tr').dataset);
+            if ('0' !== event.delegateTarget.dataset.callInProgress) {
+                return;
+            }
+
+            let { providerId, providerPhone } = event.delegateTarget.closest('tr').dataset;
+
+            event.delegateTarget.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Calling the admin';
+
+            fetch(`api/index.php?provider_id=${ providerId }&phone_number=${ encodeURIComponent(providerPhone) }`)
+                .then(() => this._trackCallProgress(providerId));
         });
     }
 
@@ -51,8 +60,8 @@ export default class ProvidersTable extends Component {
                 <tbody>
                 ${ providers.map((provider, idx) => `
                     <tr${ idx % 2 ? '' : ' class="even"' } 
-                        data-client-id="${ provider.id }" 
-                        data-client-phone="${ provider.phone }">
+                        data-provider-id="${ provider.id }" 
+                        data-provider-phone="${ provider.phone }">
                         
                         <td class="type-cell">
                             <i class="fas fa-fw fa-flag"></i>
@@ -65,7 +74,7 @@ export default class ProvidersTable extends Component {
                         <td><i class="${ provider.status[1] }"></i> ${ provider.status[0] }</td>
                         <td>
                             <button class="cell-button chat-button">CHAT</button>
-                            <button class="cell-button call-button">CALL</button>
+                            <button class="cell-button call-button" data-call-in-progress="0">CALL</button>
                             <button class="cell-button ellipsis-button"><i class="fas fa-ellipsis-v"></i></button>
                         </td>
                         
@@ -74,6 +83,45 @@ export default class ProvidersTable extends Component {
                 </tbody>
             </table>
         `;
+    }
+
+    _trackCallProgress(providerId) {
+        fetch(`api/get_call_status.php?provider_id=${ providerId }`)
+            .then((response) => {
+                return response.json();
+            })
+            .then((status) => {
+                let button = document.querySelector(`tr[data-provider-id="${ providerId }"]`).querySelector('button.call-button');
+
+                if (null !== status) {
+                    switch (parseInt(status, 10)) {
+                        case -1:
+                            button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> An error has occurred';
+                            setTimeout(() => ProvidersTable._resetCallButtonToDefault(button), 3000);
+
+                            break;
+                        case 0:
+                            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Calling the admin';
+                            setTimeout(() => this._trackCallProgress(providerId), 1000);
+
+                            break;
+                        case 1:
+                            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Calling the provider';
+                            setTimeout(() => this._trackCallProgress(providerId), 1000);
+
+                            break;
+                    }
+                } else {
+                    button.innerHTML = '<i class="fas fa-check"></i> Call completed';
+                    setTimeout(() => ProvidersTable._resetCallButtonToDefault(button), 3000);
+                }
+            })
+            .catch(console.error);
+    }
+
+    static _resetCallButtonToDefault(button) {
+        button.innerHTML = 'CALL';
+        button.dataset.callInProgress = '0';
     }
 
 }

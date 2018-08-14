@@ -25,5 +25,5 @@ echo $response;
 $redis = new \Redis();
 $redis->connect('/var/run/redis/redis.sock');
 $redis->select(1);
-$redis->set('tc24_call_status_' . $providerId, serialize([ 'status' => 1 ]));
+$redis->set('tc24_call_status_' . $providerId, 1);
 $redis->close();
